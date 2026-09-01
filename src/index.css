@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #05060B;
+    color: #F8FAFC;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #080A12;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #202638;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5B7CFF;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-xs font-semibold tracking-[0.2em] uppercase text-brand-blue;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-text-primary leading-tight;
+  }
+
+  .card-base {
+    @apply bg-bg-card border border-border rounded-xl p-6 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:border-brand-blue/40 hover:shadow-card-hover;
+  }
+
+  .btn-primary {
+    @apply px-5 py-2.5 rounded-lg bg-brand-blue text-white font-semibold text-sm 
+           hover:bg-brand-blue/90 transition-all duration-200 flex items-center gap-2
+           hover:shadow-glow-blue active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-5 py-2.5 rounded-lg border border-border text-text-muted font-semibold text-sm 
+           hover:border-brand-blue/50 hover:text-text-primary transition-all duration-200 
+           flex items-center gap-2 active:scale-95 bg-bg-secondary;
+  }
+
+  .tech-pill {
+    @apply px-2.5 py-1 text-xs font-medium bg-bg-secondary border border-border 
+           rounded-md text-text-muted;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent;
+  }
+
+  .nav-link {
+    @apply text-sm font-medium text-text-muted hover:text-text-primary transition-colors duration-200 relative;
+  }
+
+  .nav-link-active {
+    @apply text-text-primary;
+  }
+}
+
+@layer utilities {
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #5B7CFF, #8B5CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #22D3EE, #5B7CFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-border-blue {
+    border-color: rgba(91, 124, 255, 0.4);
+    box-shadow: 0 0 20px rgba(91, 124, 255, 0.15), inset 0 0 20px rgba(91, 124, 255, 0.05);
+  }
+
+  .bg-grid {
+    background-image: 
+      linear-gradient(rgba(32, 38, 56, 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(32, 38, 56, 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(circle, rgba(91, 124, 255, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* 3D Server Visual Styles */
+.server-stack {
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
+}
+
+.server-layer {
+  transform-style: preserve-3d;
+}
+
+/* Timeline connector */
+.timeline-line {
+  position: absolute;
+  left: 7px;
+  top: 24px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #5B7CFF, transparent);
+}
+
+/* Scrollbar for horizontal sections */
+.horizontal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #202638 transparent;
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .server-stack {
+    transform: scale(0.7);
+  }
+}
