@@ -4,7 +4,7 @@ export const personalInfo = {
   name: 'Girjesh Baghel',
   title: 'Backend Java Developer',
   email: 'girjesh62586@gmail.com',
-  phone: '+91 8800302316',
+  phone: '+91 8802612236',
   linkedin: 'https://www.linkedin.com/in/girjesh-baghel',
   github: 'https://github.com/girjesh2310',
   resumeUrl: 'https://drive.google.com/file/d/1lEqoERqzg1DfMjGJC8tY_-KOKPul8d_1/view?usp=drive_link',
