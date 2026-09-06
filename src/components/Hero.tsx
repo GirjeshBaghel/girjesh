@@ -280,7 +280,7 @@ export default function Hero() {
                 {personalInfo.email}
               </a>
               <a
-                href="tel:+918800302316"
+                href="tel:+918802612236"
                 className="flex items-center gap-2 text-text-muted text-sm hover:text-brand-blue transition-colors"
               >
                 <svg className="w-4 h-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
