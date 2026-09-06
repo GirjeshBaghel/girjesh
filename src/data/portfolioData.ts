@@ -7,7 +7,7 @@ export const personalInfo = {
   phone: '+91 8802612236',
   linkedin: 'https://www.linkedin.com/in/girjesh-baghel',
   github: 'https://github.com/girjesh2310',
-  resumeUrl: 'https://drive.google.com/file/d/1lEqoERqzg1DfMjGJC8tY_-KOKPul8d_1/view?usp=drive_link',
+  resumeUrl: 'https://drive.google.com/file/d/1fFtRU5OkOmosc-JKQcgvq6qauOL_7UDt/view?usp=drive_link',
   location: 'Noida, India',
   summary: `Backend-focused Java Developer with 3+ years of experience building scalable microservices using Spring Boot, designing high-performance REST APIs, implementing secure authentication systems, and optimizing applications using Redis and Kafka.`,
   aboutSummary: `Backend-focused Java Developer with 3+ years of experience in building scalable microservices using Spring Boot. Experienced in designing high-performance REST APIs, implementing secure authentication systems, and optimizing applications using Redis and Kafka.
