@@ -93,7 +93,7 @@ export default function About() {
             </h2>
             <div className="space-y-4 text-text-muted text-[15px] leading-relaxed">
               <p>
-                Backend-focused Java Developer with 2+ years of experience in building scalable
+                Backend-focused Java Developer with 3+ years of experience in building scalable
                 microservices using Spring Boot. Experienced in designing high-performance REST
                 APIs, implementing secure authentication systems, and optimizing applications
                 using Redis and Kafka.
@@ -105,16 +105,18 @@ export default function About() {
             </div>
 
             {/* Quick facts */}
-            <div className="mt-8 grid grid-cols-2 gap-3">
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
                 { label: 'Current Role', value: 'Backend Developer' },
                 { label: 'Company', value: 'Scriza Pvt Ltd' },
-                { label: 'Location', value: 'Noida, India' },
+                { label: 'Experience', value: '3+ Years' },
+                { label: 'Master Degree', value: 'MCA (Completed 2026)' },
+                { label: 'Bachelor Degree', value: 'BCA (Completed 2022)' },
                 { label: 'Focus', value: 'Microservices & APIs' },
               ].map((item) => (
                 <div key={item.label} className="bg-bg-card border border-border rounded-lg p-3">
                   <p className="text-xs text-text-muted mb-0.5">{item.label}</p>
-                  <p className="text-sm font-semibold text-text-primary">{item.value}</p>
+                  <p className="text-xs sm:text-sm font-semibold text-text-primary">{item.value}</p>
                 </div>
               ))}
             </div>

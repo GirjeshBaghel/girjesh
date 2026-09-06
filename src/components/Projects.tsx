@@ -46,6 +46,46 @@ function ProjectMockup({ project }: { project: typeof projects[0] }): React.Reac
       </div>
     ),
     2: (
+      // FinTech Payment Platform
+      <div className="w-full h-full bg-[#060D1A] rounded-t-lg overflow-hidden p-3 flex flex-col justify-between">
+        <div className="flex items-center justify-between border-b border-border/40 pb-2">
+          <div className="flex items-center gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="text-[9px] font-bold text-cyan-300">FinTech Pay Gateway</span>
+          </div>
+          <span className="text-[7px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-1.5 py-0.5 rounded">
+            1,000+ Req/sec
+          </span>
+        </div>
+
+        <div className="grid grid-cols-3 gap-1.5 my-2">
+          <div className="bg-border/20 rounded p-1.5 border border-cyan-500/20">
+            <div className="text-[6px] text-text-muted">BBPS Status</div>
+            <div className="text-[8px] font-bold text-emerald-400">● Connected</div>
+          </div>
+          <div className="bg-border/20 rounded p-1.5">
+            <div className="text-[6px] text-text-muted">Success Rate</div>
+            <div className="text-[8px] font-bold text-cyan-400">99.98%</div>
+          </div>
+          <div className="bg-border/20 rounded p-1.5">
+            <div className="text-[6px] text-text-muted">Latency</div>
+            <div className="text-[8px] font-bold text-purple-400">42ms</div>
+          </div>
+        </div>
+
+        <div className="bg-cyan-950/40 border border-cyan-500/30 rounded-lg p-2 space-y-1">
+          <div className="text-[7px] font-mono text-cyan-300 flex justify-between">
+            <span>TXN #984210</span>
+            <span className="text-emerald-400">RECONCILED</span>
+          </div>
+          <div className="text-[6px] text-text-muted flex justify-between font-mono">
+            <span>Client → BBPS API → Gateway</span>
+            <span>200 OK</span>
+          </div>
+        </div>
+      </div>
+    ),
+    3: (
       // AI School ERP
       <div className="w-full h-full bg-[#0a0d1a] rounded-t-lg overflow-hidden">
         <div className="flex h-full">
@@ -83,38 +123,6 @@ function ProjectMockup({ project }: { project: typeof projects[0] }): React.Reac
               ))}
             </div>
           </div>
-        </div>
-      </div>
-    ),
-    3: (
-      // Rental Application
-      <div className="w-full h-full bg-[#080c14] rounded-t-lg overflow-hidden p-3">
-        <div className="flex items-center justify-between mb-2">
-          <div className="text-[9px] font-bold text-text-primary">RentEasy</div>
-          <div className="flex gap-1">
-            <div className="w-5 h-3 bg-green-500/20 rounded-sm" />
-            <div className="w-8 h-3 bg-border/40 rounded-sm" />
-          </div>
-        </div>
-        <div className="bg-border/20 rounded-lg p-1.5 mb-2 flex gap-1">
-          <div className="flex-1 bg-bg-primary rounded px-2 py-0.5 text-[7px] text-text-muted">Search items...</div>
-          <div className="w-5 h-4 bg-green-500/20 rounded flex items-center justify-center text-[7px]">🔍</div>
-        </div>
-        <div className="grid grid-cols-2 gap-1.5">
-          {[
-            { name: '📸 Camera', price: '₹200/day', avail: true },
-            { name: '🚲 Bicycle', price: '₹50/day', avail: true },
-            { name: '💻 Laptop', price: '₹500/day', avail: false },
-            { name: '⛺ Tent', price: '₹150/day', avail: true },
-          ].map((item, i) => (
-            <div key={i} className="bg-border/20 rounded-lg p-2">
-              <div className="text-[10px] mb-1">{item.name}</div>
-              <div className="text-[8px] text-green-400 font-medium">{item.price}</div>
-              <div className={`text-[6px] mt-0.5 ${item.avail ? 'text-green-400' : 'text-red-400'}`}>
-                {item.avail ? '● Available' : '● Booked'}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     ),
@@ -167,13 +175,20 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         </span>
       </div>
 
-      {/* External link icon */}
-      <div className="absolute top-4 right-4 z-10">
-        <div className="w-7 h-7 rounded-lg bg-bg-primary/80 border border-border flex items-center justify-center 
-                        group-hover:border-brand-blue/40 group-hover:bg-brand-blue/10 transition-all">
-          <ArrowUpRight size={13} className="text-text-muted group-hover:text-brand-blue transition-colors group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-        </div>
-      </div>
+      {/* External link icon / Live link */}
+      {project.live && (
+        <a
+          href={project.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="absolute top-4 right-4 z-20 w-8 h-8 rounded-lg bg-bg-primary/90 border border-border flex items-center justify-center 
+                          hover:border-brand-blue/60 hover:bg-brand-blue/20 transition-all group/link shadow-md"
+          title={`Visit Live ${project.title}`}
+        >
+          <ArrowUpRight size={14} className="text-brand-blue group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+        </a>
+      )}
 
       {/* Mockup visual */}
       <div className="relative h-44 overflow-hidden" style={{ transform: 'translateZ(20px)' }}>
@@ -183,22 +198,39 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       </div>
 
       {/* Content */}
-      <div className="p-5">
-        <div className="mb-1 flex items-center gap-2">
-          <h3 className="text-base font-bold text-text-primary">{project.title}</h3>
-          <span className="text-[10px] text-text-muted border border-border px-1.5 py-0.5 rounded font-mono">
-            {project.architecture}
-          </span>
-        </div>
-        <p className="text-text-muted text-xs mb-3 leading-relaxed">{project.subtitle}</p>
-        <p className="text-text-muted text-[12px] leading-relaxed mb-4 line-clamp-2">{project.description}</p>
+      <div className="p-5 flex flex-col justify-between flex-1">
+        <div>
+          <div className="mb-1 flex items-center justify-between gap-2">
+            <h3 className="text-base font-bold text-text-primary group-hover:text-brand-blue transition-colors">{project.title}</h3>
+            <span className="text-[10px] text-text-muted border border-border px-1.5 py-0.5 rounded font-mono shrink-0">
+              {project.architecture}
+            </span>
+          </div>
+          <p className="text-brand-blue/90 text-xs font-medium mb-2 leading-relaxed">{project.subtitle}</p>
+          <p className="text-text-muted text-[12px] leading-relaxed mb-4 line-clamp-2">{project.description}</p>
 
-        {/* Tech pills */}
-        <div className="flex flex-wrap gap-1.5">
-          {project.technologies.map((tech) => (
-            <span key={tech} className="tech-pill">{tech}</span>
-          ))}
+          {/* Tech pills */}
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {project.technologies.map((tech) => (
+              <span key={tech} className="tech-pill">{tech}</span>
+            ))}
+          </div>
         </div>
+
+        {/* Live Site Link CTA */}
+        {project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-cyan hover:text-brand-blue 
+                       bg-brand-cyan/10 hover:bg-brand-blue/10 border border-brand-cyan/20 hover:border-brand-blue/30 
+                       px-3 py-1.5 rounded-lg transition-all self-start mt-1"
+          >
+            Visit Live Platform <ArrowUpRight size={13} />
+          </a>
+        )}
       </div>
 
       {/* Bottom accent */}
